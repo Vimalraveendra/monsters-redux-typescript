@@ -15,7 +15,6 @@ const MonstersList = ({ monsters }) => {
           />
         );
       })}
-      <Monster />
     </div>
   );
 };
