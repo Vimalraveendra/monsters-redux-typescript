@@ -1,6 +1,7 @@
 import React from "react";
 import Monster from "../Monster/Monster";
 import "./Monster.css";
+import { connect } from "react-redux";
 
 const MonstersList = ({ monsters }) => {
   return (
@@ -19,4 +20,8 @@ const MonstersList = ({ monsters }) => {
   );
 };
 
-export default MonstersList;
+const mapStateToProps = ({ monstersArray: { monsters } }) => ({
+  monsters
+});
+
+export default connect(mapStateToProps)(MonstersList);

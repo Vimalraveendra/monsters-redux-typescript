@@ -4,5 +4,5 @@ import { searchMonsters } from "./Monsters/Monsters.reducer";
 
 export default combineReducers({
   searchText: searchChange,
-  MonstersArray: searchMonsters
+  monstersArray: searchMonsters
 });
