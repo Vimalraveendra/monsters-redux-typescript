@@ -8,7 +8,7 @@ const MonstersList = ({ monsters, searchField }) => {
   // so each consecutive search is performed  on the previously filtered
   //value. so you are losing the original copy of your monsters array.
 
-  // to address this issue  best place to filter the monsters array is inside
+  //inorder  to address this issue  best place to filter the monsters array is inside
   // the components .so that it will not upadate the monsters array
 
   monsters = monsters.filter(monster =>
