@@ -1,6 +1,6 @@
-import searchBoxActionTypes from "./SearchBox.types";
+import searchBoxActionTypes, { ISearchField } from "./SearchBox.types";
 
-const initialState = {
+const initialState: ISearchField = {
   searchField: ""
 };
 
