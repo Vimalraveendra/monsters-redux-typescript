@@ -7,13 +7,6 @@ import { connect } from "react-redux";
 import { requestMonsters } from "../Redux/Monsters/Monsters.Actions";
 
 class App extends React.Component {
-  // filteredMonsters = () => {
-  //   return this.props.monsters.filter(monster => {
-  //     return monster.name
-  //       .toLowerCase()
-  //       .includes(this.props.searchField.toLowerCase());
-  //   });
-  // };
   componentDidMount() {
     this.props.requestMonsters();
   }
@@ -27,12 +20,9 @@ class App extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ monstersArray: { monsters, searchField } }) => ({
-  searchField,
-  monsters
-});
+
 const mapDispatchToProps = dispatch => ({
   requestMonsters: () => dispatch(requestMonsters())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

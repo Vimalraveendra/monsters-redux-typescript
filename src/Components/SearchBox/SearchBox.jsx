@@ -1,8 +1,7 @@
 import React from "react";
 import "./SearchBox.css";
 import { connect } from "react-redux";
-import { searchChange } from "../../Redux/Monsters/Monsters.Actions";
-// import { filteredMonsters } from "../../Redux/Monsters/Monsters.Actions";
+import { searchChange } from "../../Redux/SearchBox/SearchBox.actions";
 
 const SearchBox = ({ searchChange }) => {
   return (
@@ -17,9 +16,6 @@ const SearchBox = ({ searchChange }) => {
   );
 };
 
-// const mapStateToProps = ({ monstersArray: { searchField } }) => ({
-//   searchField
-// });
 const mapDispatchToProps = dispatch => ({
   searchChange: event => dispatch(searchChange(event.target.value))
 });
