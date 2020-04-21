@@ -5,6 +5,8 @@ import {
   monstersActionTypes
 } from "./Monsters.types";
 import { Dispatch } from "redux";
+// import { ThunkAction } from 'redux-thunk'
+// import {AppState} from "../store"
 
 export const requestMonsters = () => (
   dispatch: Dispatch<monstersActionTypes>
