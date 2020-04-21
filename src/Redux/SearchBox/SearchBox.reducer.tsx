@@ -1,12 +1,20 @@
-import searchBoxActionTypes, { ISearchField } from "./SearchBox.types";
+import {
+  SearchField,
+  SEARCHFIELD_CHANGE,
+  searchBoxActionTypes
+} from "./SearchBox.types";
 
-const initialState: ISearchField = {
+const initialState: SearchField = {
   searchField: ""
 };
 
-export const searchChange = (state = initialState, action = {}) => {
+export const searchChange = (
+  state = initialState,
+  action: searchBoxActionTypes
+): SearchField => {
+  console.log("serr", action.payload);
   switch (action.type) {
-    case searchBoxActionTypes.SEARCHFIELD_CHANGE:
+    case SEARCHFIELD_CHANGE:
       return {
         ...state,
         searchField: action.payload
