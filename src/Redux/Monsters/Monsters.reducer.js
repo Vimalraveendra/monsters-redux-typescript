@@ -1,4 +1,8 @@
-import monstersActionTypes from "./Monsters.types";
+import {
+  REQUEST_MONSTERS_PENDING,
+  REQUEST_MONSTERS_SUCCESS,
+  REQUEST_MONSTERS_FAILED
+} from "./Monsters.types";
 
 const initialState = {
   isPending: false,
@@ -7,18 +11,18 @@ const initialState = {
 
 export const searchMonsters = (state = initialState, action = {}) => {
   switch (action.type) {
-    case monstersActionTypes.REQUEST_MONSTERS_PENDING:
+    case REQUEST_MONSTERS_PENDING:
       return {
         ...state,
         isPending: true
       };
-    case monstersActionTypes.REQUEST_MONSTERS_SUCCESS:
+    case REQUEST_MONSTERS_SUCCESS:
       return {
         ...state,
         isPending: false,
         monsters: action.payload
       };
-    case monstersActionTypes.REQUEST_MONSTERS_FAILED:
+    case REQUEST_MONSTERS_FAILED:
       return {
         ...state,
         isPending: false,

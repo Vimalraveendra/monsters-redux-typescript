@@ -1,17 +1,23 @@
 import {
-  SearchField,
+  ISearchText,
   SEARCHFIELD_CHANGE,
   searchBoxActionTypes
 } from "./SearchBox.types";
 
-const initialState: SearchField = {
+// the first thing to  do  create type for the initial state or the default state.
+// you have to make sure to import the types from the searchBox types.
+const initialState: ISearchText = {
   searchField: ""
 };
 
+//Here we need to do two things , the first thing is to do a type
+// for the actions for that we need to import searchBoxActionsTypes.
+// seconde thing is to do a type for the return type as well
+// in here we return the searchField  so here we need to say ISearchText.
 export const searchChange = (
   state = initialState,
   action: searchBoxActionTypes
-): SearchField => {
+): ISearchText=> {
   console.log("serr", action.payload);
   switch (action.type) {
     case SEARCHFIELD_CHANGE:
