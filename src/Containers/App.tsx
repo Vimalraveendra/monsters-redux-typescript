@@ -6,10 +6,13 @@ import { connect } from "react-redux";
 import { requestMonsters } from "../Redux/Monsters/Monsters.Actions";
 import { ThunkDispatch } from "redux-thunk";
 import { monstersActionTypes } from "../Redux/Monsters/Monsters.types";
+import { bindActionCreators } from "redux";
 
 interface IAppProps {}
 interface IAppState {}
-class App extends React.Component<IAppProps, IAppState> {
+type Props = IAppProps & LinkDispatchToProps;
+
+class App extends React.Component<Props, IAppState> {
   componentDidMount(): void {
     this.props.requestMonsters();
   }
@@ -28,9 +31,10 @@ interface LinkDispatchToProps {
   requestMonsters: () => void;
 }
 const mapDispatchToProps = (
-  dispatch: ThunkDispatch<any, any, monstersActionTypes>
+  dispatch: ThunkDispatch<any, any, monstersActionTypes>,
+  ownProps: IAppProps
 ) => ({
-  requestMonsters: () => dispatch(requestMonsters())
+  requestMonsters: bindActionCreators(requestMonsters, dispatch)
 });
 
 export default connect(null, mapDispatchToProps)(App);

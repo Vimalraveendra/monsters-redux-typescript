@@ -24,6 +24,7 @@ export const requestMonstersFailed = (error: string): monstersActionTypes => ({
   type: REQUEST_MONSTERS_FAILED,
   payload: error
 });
+
 export const requestMonsters = () => (
   // inorder to hook the dispatch to typescript we can use Dispatch
   // types that comes from redux

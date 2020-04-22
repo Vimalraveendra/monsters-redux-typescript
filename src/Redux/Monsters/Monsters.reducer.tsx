@@ -3,7 +3,6 @@ import {
   REQUEST_MONSTERS_SUCCESS,
   REQUEST_MONSTERS_FAILED,
   IMonsters,
-  IMonstersState,
   monstersActionTypes
 } from "./Monsters.types";
 
@@ -17,8 +16,9 @@ const initialState: IMonsters = {
 
 //Here we need to do two things , the first thing is to do a type
 // for the actions for that we need to import monsterActionsTypes.
-// seconde thing is to do a type for the return type as well
-// in here we return the searchField  so here we need to say ISearchText.
+// seconde thing is to do specify the  type for the return type as well
+// in here we return isPending, monsters & error so here we need
+//to say IMonsters.
 export const searchMonsters = (
   state = initialState,
   action: monstersActionTypes
