@@ -5,8 +5,10 @@ import MonstersList from "../Components/MonstersList/MonstersList";
 import { connect } from "react-redux";
 import { requestMonsters } from "../Redux/Monsters/Monsters.Actions";
 
-class App extends React.Component {
-  componentDidMount():  {
+interface IAppProps {}
+interface IAppState {}
+class App extends React.Component<IAppProps, IAppState> {
+  componentDidMount() {
     this.props.requestMonsters();
   }
   render() {

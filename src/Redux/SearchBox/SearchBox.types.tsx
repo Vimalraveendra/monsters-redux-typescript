@@ -13,5 +13,4 @@ interface SearchChangeAction {
   payload: string;
 }
 
-i;
 export type searchBoxActionTypes = SearchChangeAction;

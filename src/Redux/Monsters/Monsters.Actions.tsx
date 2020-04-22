@@ -6,10 +6,19 @@ import {
 } from "./Monsters.types";
 import { Dispatch } from "redux";
 // import { ThunkAction } from 'redux-thunk'
-// import {AppState} from "../store"
+import { AppState } from "../store";
 
 export const requestMonsters = () => (
-  dispatch: Dispatch<monstersActionTypes>
+  // inorder to hook the dispatch to typescript we can use Dispatch
+  // types that comes from redux
+  // Dispatch is going to take a parameter i.e our monstersActiontypes
+  // which defines all the actions  that can take place in the redux store
+
+  // Redux will passes two arguments to thunk functions dispatch & getState
+  //dispatch, so that they can dispatch new actions if they need to
+  // getState,they can access the current state
+  dispatch: Dispatch<monstersActionTypes>,
+  getState: () => AppState
 ) => {
   dispatch({
     type: REQUEST_MONSTERS_PENDING
