@@ -4,11 +4,13 @@ import SearchBox from "../Components/SearchBox/SearchBox";
 import MonstersList from "../Components/MonstersList/MonstersList";
 import { connect } from "react-redux";
 import { requestMonsters } from "../Redux/Monsters/Monsters.Actions";
+import { ThunkDispatch } from "redux-thunk";
+import { monstersActionTypes } from "../Redux/Monsters/Monsters.types";
 
 interface IAppProps {}
 interface IAppState {}
 class App extends React.Component<IAppProps, IAppState> {
-  componentDidMount() {
+  componentDidMount(): void {
     this.props.requestMonsters();
   }
   render() {
@@ -22,7 +24,12 @@ class App extends React.Component<IAppProps, IAppState> {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+interface LinkDispatchToProps {
+  requestMonsters: () => void;
+}
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<any, any, monstersActionTypes>
+) => ({
   requestMonsters: () => dispatch(requestMonsters())
 });
 

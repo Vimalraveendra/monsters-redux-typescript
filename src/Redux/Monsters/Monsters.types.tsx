@@ -8,6 +8,7 @@ export interface IMonstersState {
 export interface IMonsters {
   monsters: Array<IMonstersState>;
   isPending: boolean;
+  error: string;
 }
 
 export const REQUEST_MONSTERS_PENDING = " REQUEST_MONSTERS_PENDING";
@@ -19,7 +20,7 @@ interface monstersPendingAction {
 }
 interface monstersSuccessAction {
   type: typeof REQUEST_MONSTERS_SUCCESS;
-  payload: Array<IMonsters>;
+  payload: Array<IMonstersState>;
 }
 
 interface monstersFailedAction {
