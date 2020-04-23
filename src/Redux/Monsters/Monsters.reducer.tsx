@@ -7,7 +7,7 @@ import {
 } from "./Monsters.types";
 
 // the first thing to  do  create type for the initial state or the default state.
-// you have to make sure to import the types from the searchBox types.
+// you have to make sure to import the types from the monstersAction types.
 const initialState: IMonsters = {
   isPending: false,
   monsters: [],

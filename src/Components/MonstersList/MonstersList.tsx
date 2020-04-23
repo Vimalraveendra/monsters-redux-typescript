@@ -2,16 +2,21 @@ import React from "react";
 import Monster from "../Monster/Monster";
 import "./Monster.css";
 import { connect } from "react-redux";
+import { IMonstersState } from "../../Redux/Monsters/Monsters.types";
+import { AppState } from "../../Redux/store";
 
-const MonstersList = ({ monsters, searchField }) => {
+interface IMonstersProps {}
+type Props = IMonstersProps & LinkStateToProps;
+const MonstersList: React.FC<Props> = ({ monsters, searchField }) => {
   // if  you filter the monsters in the reducer,state monsters array items
   // so each consecutive search is performed  on the previously filtered
   //value. so you are losing the original copy of your monsters array.
 
   //inorder  to address this issue  best place to filter the monsters array is inside
   // the components .so that it will not upadate the monsters array
-
-  monsters = monsters.filter(monster =>
+  console.log("monsters", monsters);
+  console.log("search", searchField);
+  monsters = monsters.filter((monster: IMonstersState) =>
     monster.name.toLowerCase().includes(searchField.toLowerCase())
   );
 
@@ -31,12 +36,17 @@ const MonstersList = ({ monsters, searchField }) => {
   );
 };
 
-const mapStateToProps = ({
-  monstersArray: { monsters },
-  searchText: { searchField }
-}) => ({
-  monsters,
-  searchField
+interface LinkStateToProps {
+  monsters: Array<IMonstersState>;
+  searchField: string;
+}
+
+const mapStateToProps = (
+  state: AppState,
+  ownProps: IMonstersProps
+): LinkStateToProps => ({
+  monsters: state.monstersArray.monsters,
+  searchField: state.searchText.searchField
 });
 
 export default connect(mapStateToProps)(MonstersList);
