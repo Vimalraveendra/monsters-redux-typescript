@@ -1,7 +1,8 @@
 import React from "react";
 import "./Monster.css";
+import { IMonstersState } from "../../Redux/Monsters/Monsters.types";
 
-const Monster = ({ id, name, email }) => {
+const Monster = ({ id, name, email }: IMonstersState) => {
   return (
     <div className="monster-container">
       <div>

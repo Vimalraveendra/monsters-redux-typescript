@@ -17,8 +17,7 @@ const initialState: ISearchText = {
 export const searchChange = (
   state = initialState,
   action: searchBoxActionTypes
-): ISearchText=> {
-  console.log("serr", action.payload);
+): ISearchText => {
   switch (action.type) {
     case SEARCHFIELD_CHANGE:
       return {
