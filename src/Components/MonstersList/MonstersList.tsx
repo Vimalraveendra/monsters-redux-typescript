@@ -14,8 +14,7 @@ const MonstersList: React.FC<Props> = ({ monsters, searchField }) => {
 
   //inorder  to address this issue  best place to filter the monsters array is inside
   // the components .so that it will not upadate the monsters array
-  console.log("monsters", monsters);
-  console.log("search", searchField);
+
   monsters = monsters.filter((monster: IMonstersState) =>
     monster.name.toLowerCase().includes(searchField.toLowerCase())
   );
@@ -41,10 +40,7 @@ interface LinkStateToProps {
   searchField: string;
 }
 
-const mapStateToProps = (
-  state: AppState,
-  ownProps: IMonstersProps
-): LinkStateToProps => ({
+const mapStateToProps = (state: AppState): LinkStateToProps => ({
   monsters: state.monstersArray.monsters,
   searchField: state.searchText.searchField
 });
