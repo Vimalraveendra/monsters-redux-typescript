@@ -3,8 +3,7 @@ import {
   SEARCHFIELD_CHANGE,
   searchBoxActionTypes
 } from "./SearchBox.types";
-import { ThunkDispatch } from "redux-thunk";
-import { searchBoxActionTypes } from "../../Redux/SearchBox/SearchBox.types";
+
 // the first thing to  do  create type for the initial state or the default state.
 // you have to make sure to import the types from the searchBox types.
 const initialState: ISearchText = {
@@ -23,7 +22,7 @@ export const searchChange = (
     case SEARCHFIELD_CHANGE:
       return {
         ...state,
-        searchField: action.payload
+        searchField: action.payload.target.value
       };
     default:
       return state;

@@ -29,6 +29,9 @@ interface LinkDispatchToProps {
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<any, any, searchBoxActionTypes>
 ): LinkDispatchToProps => ({
+  // bindActionCreators is when you want to pass some action creators
+  // down to a component that isn't aware of Redux, and you don't want
+  //to pass dispatch or the Redux store to it.
   searchChange: bindActionCreators(searchChange, dispatch)
 });
 export default connect(null, mapDispatchToProps)(SearchBox);
