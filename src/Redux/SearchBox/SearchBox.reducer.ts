@@ -9,9 +9,9 @@ import {
 const initialState: ISearchText = {
   searchField: ""
 };
-
+// now we are going to specify the types for  parameters & return reducer types.
 //Here we need to do two things , the first thing is to do a type
-// for the actions for that we need to import searchBoxActionsTypes.
+// for the action for that we need to import searchBoxActionsTypes.
 // seconde thing is to do a type for the return type as well
 // in here we return the searchField  so here we need to say ISearchText.
 export const searchChange = (

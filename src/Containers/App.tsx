@@ -10,6 +10,8 @@ import { bindActionCreators } from "redux";
 
 interface IAppProps {}
 interface IAppState {}
+
+// here we are doing aggregation of all the props  types.
 type Props = IAppProps & LinkDispatchToProps;
 
 class App extends React.Component<Props, IAppState> {
@@ -27,14 +29,20 @@ class App extends React.Component<Props, IAppState> {
   }
 }
 
+// here we need to specify the return type of  mapDispatchToProps.
 interface LinkDispatchToProps {
+  // here requesMonsters is a funtion that  not taking paramter &
+  // it returns void, thats what bascially dispatch returns.
   requestMonsters: () => void;
 }
 const mapDispatchToProps = (
+  // normally we are using dispatch type, but here we are using thunk
+  // so we are using ThunkDispatch.
   dispatch: ThunkDispatch<any, any, monstersActionTypes>,
   ownProps: IAppProps
-) => ({
-  //// bindActionCreators is when you want to pass some action creators
+  // here ownProps is the props of the App component in our case IAppProps
+): LinkDispatchToProps => ({
+  //bindActionCreators is when you want to pass some action creators
   // down to a component that isn't aware of Redux, and you don't want
   //to pass dispatch or the Redux store to it.
   requestMonsters: bindActionCreators(requestMonsters, dispatch)

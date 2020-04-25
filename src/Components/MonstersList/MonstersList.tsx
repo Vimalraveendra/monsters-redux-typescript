@@ -33,13 +33,15 @@ const MonstersList: React.FC<Props> = ({ monsters, searchField }) => {
       })}
     </div>
   );
-};
-
+}
+// here we need to specify the return type of  mapStateToProps.
 interface LinkStateToProps {
   monsters: Array<IMonstersState>;
   searchField: string;
 }
 
+// here we are going to specify the  type for parameter state & return 
+// type of mapStateToProps.
 const mapStateToProps = (state: AppState): LinkStateToProps => ({
   monsters: state.monstersArray.monsters,
   searchField: state.searchText.searchField
