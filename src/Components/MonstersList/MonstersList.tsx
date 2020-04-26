@@ -1,6 +1,6 @@
 import React from "react";
 import Monster from "../Monster/Monster";
-import "./Monster.css";
+import "./MonsterList.css";
 import { connect } from "react-redux";
 import { IMonstersState } from "../../Redux/Monsters/Monsters.types";
 import { AppState } from "../../Redux/store";
@@ -33,14 +33,14 @@ const MonstersList: React.FC<Props> = ({ monsters, searchField }) => {
       })}
     </div>
   );
-}
+};
 // here we need to specify the return type of  mapStateToProps.
 interface LinkStateToProps {
   monsters: Array<IMonstersState>;
   searchField: string;
 }
 
-// here we are going to specify the  type for parameter state & return 
+// here we are going to specify the  type for parameter state & return
 // type of mapStateToProps.
 const mapStateToProps = (state: AppState): LinkStateToProps => ({
   monsters: state.monstersArray.monsters,
