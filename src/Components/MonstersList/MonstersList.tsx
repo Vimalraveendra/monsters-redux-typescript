@@ -7,6 +7,7 @@ import { AppState } from "../../Redux/store";
 
 interface IMonstersProps {}
 type Props = IMonstersProps & LinkStateToProps;
+
 const MonstersList: React.FC<Props> = ({ monsters, searchField }) => {
   // if  you filter the monsters in the reducer,state monsters array items
   // so each consecutive search is performed  on the previously filtered
